@@ -5,7 +5,7 @@ import { CompanyFormComponent } from './company-form/company-form.component';
 import {CommonModule} from "@angular/common";
 
 const routes: Routes = [
-  { path: 'Company', component: CompanyListComponent },
+  { path: 'company', component: CompanyListComponent },
   { path: 'addCompany', component: CompanyFormComponent }
 ];
 

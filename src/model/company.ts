@@ -1,6 +1,7 @@
 export class Company {
-  id!: string;
-  name!: string;
-  email!: string;
+  id!:string;
+  companyName!: string;
+  ceo!: string;
+  sharePrice!: number;
 
 }

@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { Company } from '../model/Company';
+
+
 import { Observable } from 'rxjs';
+import {Company} from "../model/company";
 
 @Injectable()
 export class CompanyServiceService {
@@ -9,11 +11,11 @@ export class CompanyServiceService {
   private companyUrl: string;
 
   constructor(private http: HttpClient) {
-    this.companyUrl = 'http://localhost:5432/Company';
+    this.companyUrl = 'http://localhost:5433/Company';
   }
 
-  public findAll(): Observable<Company[]> {
-    return this.http.get<Company[]>(this.companyUrl);
+  public findAll(): Observable<any> {
+    return this.http.get(this.companyUrl);
   }
 
   public save(company: Company) {

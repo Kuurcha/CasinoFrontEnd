@@ -1,27 +1,37 @@
 <div class="card my-5">
   <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #testForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
       <div class="form-group">
-        <label for="adress">adress</label>
-        <input type="text" [(ngModel)]="company.email"
+        <label for="Company Name">Company Name</label>
+        <input type="text" [(ngModel)]="company.companyName"
                class="form-control"
-               id="adress"
-               name="adress"
-               placeholder="Enter your name"
-               required #adress="ngModel">
+               id="Company Name"
+               name="Company Name"
+               placeholder="Enter Company Name"
+               required #CompanyName="ngModel">
       </div>
-      <div [hidden]="!adress.pristine" class="alert alert-danger">adress is required</div>
+      <div [hidden]="!CompanyName.pristine" class="alert alert-danger">Company Name is required</div>
       <div class="form-group">
-        <label for="casino number"> Casino Numberl</label>
-        <input type="text" [(ngModel)]="company.name"
+        <label for="CEO"> CEO</label>
+        <input type="text" [(ngModel)]="company.ceo"
                class="form-control"
-               id="casino number"
-               name="casino number"
+               id="CEO"
+               name="CEO"
                placeholder="Enter your casino number"
-               required #casino_number="ngModel">
-        <div [hidden]="!casino_number.pristine" class="alert alert-danger">Casino_number is required</div>
+               required #ceo="ngModel">
+        <div [hidden]="!ceo.pristine" class="alert alert-danger">Chief executive officer is required</div>
       </div>
-      <button type="submit" [disabled]="!testForm.form.valid"
+      <div class="form-group">
+        <label for="Share Price"> Share Price</label>
+        <input type="text" [(ngModel)]="company.sharePrice"
+               class="form-control"
+               id="Share Price"
+               name="Share Price"
+               placeholder="Enter your casino number"
+               required #ceo="ngModel">
+        <div [hidden]="!ceo.pristine" class="alert alert-danger">Share Price is required</div>
+      </div>
+      <button type="submit" [disabled]="!companyForm.valid"
               class="btn btn-info">Submit</button>
     </form>
   </div>
