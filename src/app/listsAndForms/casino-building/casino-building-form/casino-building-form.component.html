@@ -1,0 +1,29 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #casinoBuildingForm="ngForm">
+      <div class="form-group">
+        <label for="adress">Company Name</label>
+        <input type="text" [(ngModel)]="casinoBuilding.adress"
+               class="form-control"
+               id="adress"
+               name="adress"
+               placeholder="Enter Casino Building Adress"
+               required #CompanyName="ngModel">
+      </div>
+      <div [hidden]="!CompanyName.pristine" class="alert alert-danger">Casino Building Adress is required</div>
+      <div class="form-group">
+        <label for="number"> Casino Building Number</label>
+        <input type="text" [(ngModel)]="casinoBuilding.buildingNumber"
+               class="form-control"
+               id="number"
+               name="number"
+               placeholder="Enter your casino number"
+               required #number="ngModel">
+        <div [hidden]="!number.pristine" class="alert alert-danger">Chief executive officer is required</div>
+        <button type="submit" [disabled]="!casinoBuildingForm.valid"
+                class="btn btn-info">Submit</button>
+      </div>
+    </form>
+  </div>
+</div>
+

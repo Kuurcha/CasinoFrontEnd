@@ -1,0 +1,48 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #workerForm="ngForm">
+      <div class="form-group">
+        <label for="fullname"> Full name </label>
+        <input type="text" [(ngModel)]="worker.fullname"
+               class="form-control"
+               id="fullname"
+               name="fullname"
+               placeholder="Enter name here"
+               required #workerName="ngModel">
+      </div>
+      <div [hidden]="!workerName.pristine" class="alert alert-danger">Name of the worker required!</div>
+      <div class="form-group">
+        <label for="occupation"> Occupation </label>
+        <input type="text" [(ngModel)]="worker.occupation"
+               class="form-control"
+               id="occupation"
+               name="occupation"
+               placeholder="Enter occupation here"
+               required #workerOccupation="ngModel">
+        <div [hidden]="!workerOccupation.pristine" class="alert alert-danger">Ocupation required!</div>
+      </div>
+      <div class="form-group">
+        <label for="datebirth"> dateOfBirth </label>
+        <input type="text" [(ngModel)]="worker.dateOfBirth"
+               class="form-control"
+               id="datebirth"
+               name="dateBirth"
+               placeholder="01-01-1970"
+               required #datebirth="ngModel">
+        <div [hidden]="!datebirth.pristine" class="alert alert-danger">Date of birth required</div>
+      </div>
+      <div class="form-group">
+        <label for="salary">Salary</label>
+        <input type="text" [(ngModel)]="worker.salary"
+               class="form-control"
+               id="salary"
+               name="salary"
+               placeholder="0"
+               required #salary="ngModel">
+        <div [hidden]="!salary.pristine" class="alert alert-danger">Salary is required (usually) </div>
+      </div>
+      <button type="submit" [disabled]="!workerForm.valid"
+              class="btn btn-info">Submit</button>
+    </form>
+  </div>
+</div>

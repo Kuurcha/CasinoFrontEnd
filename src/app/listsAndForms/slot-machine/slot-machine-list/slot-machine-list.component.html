@@ -1,0 +1,24 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">db ID </th>
+        <th scope="col">Slot number</th>
+        <th scope="col">The name of the game</th>
+        <th scope="col">Cash remaining</th>
+        <th scope = "col">Payment Dispersion</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let slotMachine of slotMachines">
+        <td>{{ slotMachine.id }}</td>
+        <td>{{ slotMachine.slotNumber }}</td>
+        <td>{{ slotMachine.gameName}}</td>
+        <td>{{ slotMachine.cashRemains}}</td>
+        <td>{{slotMachine.paymentDispersion}}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+<div class="card my-5">
+  <div class="card-body">
+    <table class="table table-bordered table-striped">
+      <thead class="thead-dark">
+      <tr>
+        <th scope="col">DB id </th>
+        <th scope="col">Adress</th>
+        <th scope="col">Casino Building Number</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let casinoBuilding of casinoBuildings">
+        <td>{{ casinoBuilding.id }}</td>
+        <td>{{ casinoBuilding.adress }}</td>
+        <td>{{ casinoBuilding.buildingNumber }}</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+<div class="card my-5">
+  <div class="card-body">
+    <form (ngSubmit)="onSubmit()" #slotForm="ngForm">
+      <div class="form-group">
+        <label for="Slot Number">Slot machine number</label>
+        <input type="text" [(ngModel)]="slotMachine.slotNumber"
+               class="form-control"
+               id="Slot Number"
+               name="Slot Number"
+               placeholder="0"
+               required #SlotNumber="ngModel">
+      </div>
+      <div [hidden]="!SlotNumber.pristine" class="alert alert-danger">Number of Machine is required</div>
+
+      <div class="form-group">
+        <label for="Game Name"> CEO</label>
+        <input type="text" [(ngModel)]="slotMachine.gameName"
+               class="form-control"
+               id="Game Name"
+               name="Game Name"
+               placeholder="Enter Game Name"
+               required #gameName="ngModel">
+        <div [hidden]="!gameName.pristine" class="alert alert-danger">Game Name is required</div>
+      </div>
+      <div class="form-group">
+        <label for="cash"> Cash remaining</label>
+        <input type="text" [(ngModel)]="slotMachine.cashRemains"
+               class="form-control"
+               id="cash"
+               name="cash"
+               placeholder="0"
+               required #cashmoney="ngModel">
+        <div [hidden]="!cashmoney.pristine" class="alert alert-danger">Share Price is required</div>
+      </div>
+      div class="form-group">
+      <label for="dispersion"> Cash remaining</label>
+      <input type="text" [(ngModel)]="slotMachine.paymentDispersion"
+             class="form-control"
+             id="dispersion"
+             name="dispersion"
+             placeholder="0"
+             required #dispersion="ngModel">
+      <div [hidden]="!dispersion.pristine" class="alert alert-danger">Dispersion required!</div>
+      <button type="submit" [disabled]="!slotForm.valid"
+              class="btn btn-info">Submit</button>
+
+    </form>
+  </div>
+</div>
