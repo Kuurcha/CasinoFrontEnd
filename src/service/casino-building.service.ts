@@ -12,7 +12,7 @@ export class CasinoBuildingService {
   private casinoBuildingUrl: string;
 
   constructor(private http: HttpClient) {
-    this.casinoBuildingUrl= 'http://localhost:5433/Worker';
+    this.casinoBuildingUrl= 'http://localhost:5433/CasinoBuilding';
   }
 
   public findAll(): Observable<CasinoBuilding[]> {

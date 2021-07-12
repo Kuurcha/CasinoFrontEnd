@@ -3,19 +3,31 @@
     <div class="col-md-12">
       <div class="card bg-dark my-5">
         <div class="card-body">
+
           <h2 class="card-title text-center text-white py-3">{{ title }}</h2>
+
+
               <ul class="text-center list-inline py-3">
 
             <li class="list-inline-item">
-              <a routerLink="/company" class="btn btn-info">List Users</a>
+              <a [routerLink]="'/' + radioButtonValue" class="btn btn-info"> List {{ this.radioButtonValue}}</a>
             </li>
             <li class="list-inline-item">
-              <a routerLink="/addCompany" class="btn btn-info">Add User</a>
+              <a [routerLink]=" '/' + radioButtonValue + ' Add' " class="btn btn-info">Add {{ this.radioButtonValue}}</a>
             </li>
           </ul>
         </div>
+
       </div>
+      <input type="radio" value="Company" name="entityType"   [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)"> Company
+      <input type="radio" value="Casino Building" name="entityType" [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)" > Casino Building
+      <input type="radio" value="Slot Machine" name="entityType"  [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)"> Slot Machine
+      <input type="radio" value="Worker" name="entityType"    [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)" > Worker
+      <form [formGroup]="entityForm" (ngSubmit)="onFormSubmit()">
+
+      </form>
       <router-outlet></router-outlet>
+
     </div>
   </div>
 </div>

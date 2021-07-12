@@ -10,14 +10,14 @@ import {SlotMachineFormComponent} from "./listsAndForms/slot-machine/slot-machin
 import {SlotMachineListComponent} from "./listsAndForms/slot-machine/slot-machine-list/slot-machine-list.component";
 
 const routes: Routes = [
-  { path: 'company', component: CompanyListComponent },
-  { path: 'companyAdd', component: CompanyFormComponent },
-  { path: 'casinoBuilding', component: CasinoBuidlingListComponent},
-  { path: 'casinoBuildingAdd', component: CasinoBuidlingListComponent},
-  { path: 'worker', component: WorkerListComponent},
-  { path: 'workerAdd', component: WorkerFormComponent},
-  { path: 'slotMachine', component: SlotMachineListComponent},
-  { path: 'slotMachineAdd', component: SlotMachineFormComponent}
+  { path: 'Company', component: CompanyListComponent },
+  { path: 'Company Add', component: CompanyFormComponent },
+  { path: 'Casino Building', component: CasinoBuidlingListComponent},
+  { path: 'Casino Building Add', component: CasinoBuidlingListComponent},
+  { path: 'Worker', component: WorkerListComponent},
+  { path: 'Worker Add', component: WorkerFormComponent},
+  { path: 'Slot Machine', component: SlotMachineListComponent},
+  { path: 'Slot Machine Add', component: SlotMachineFormComponent}
 ];
 
 @NgModule({

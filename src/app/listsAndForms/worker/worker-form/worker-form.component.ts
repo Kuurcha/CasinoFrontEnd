@@ -23,7 +23,7 @@ export class WorkerFormComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/worker']);
+    this.router.navigate(['/Worker']);
   }
 
   ngOnInit(): void {

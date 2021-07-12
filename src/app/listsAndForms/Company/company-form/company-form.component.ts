@@ -22,7 +22,7 @@ export class CompanyFormComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/company']);
+    this.router.navigate(['/Сompany']);
   }
 
   ngOnInit(): void {

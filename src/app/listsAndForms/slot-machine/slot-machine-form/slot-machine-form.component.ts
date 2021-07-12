@@ -23,7 +23,7 @@ export class SlotMachineFormComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/slotMachine']);
+    this.router.navigate(['/SlotMachine']);
   }
 
   ngOnInit(): void {

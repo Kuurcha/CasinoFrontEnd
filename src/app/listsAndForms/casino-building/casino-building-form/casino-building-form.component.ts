@@ -24,7 +24,7 @@ export class CasinoBuildingFormComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/casinoBuilding']);
+    this.router.navigate(['/Сasino Building']);
   }
 
   ngOnInit(): void {
