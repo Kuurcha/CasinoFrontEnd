@@ -2,7 +2,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
-import {RouterModule} from "@angular/router";
+import { Routes, RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from "@angular/forms";
@@ -21,12 +21,13 @@ import {HttpClientModule} from "@angular/common/http";
     CompanyFormComponent
   ],
     imports: [
-        BrowserModule,
-        RouterModule,
-        HttpClientModule,
-        FormsModule
+      BrowserModule,
+      RouterModule,
+      HttpClientModule,
+      FormsModule,
+      AppRoutingModule
     ],
-  providers: [],
+  providers: [CompanyServiceService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

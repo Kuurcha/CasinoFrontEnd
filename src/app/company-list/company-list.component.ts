@@ -9,13 +9,13 @@ import { Observable } from 'rxjs';
 })
 export class CompanyListComponent implements OnInit {
 
-  companies: Company[] | undefined;
+  companies!: Company[];
 
   constructor(private companyService: CompanyServiceService) {
   }
 
   ngOnInit() {
-    this.companyService.findAll().subscribe((data: Company[]) => {
+    this.companyService.findAll().subscribe((data) => {
       this.companies = data;
     });
   }

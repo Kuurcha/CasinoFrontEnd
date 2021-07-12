@@ -1,28 +1,27 @@
-<p>company-form works!</p>
 <div class="card my-5">
   <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #companyForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #testForm="ngForm">
       <div class="form-group">
-        <label for="name">Name</label>
-        <input type="text" [(ngModel)]="company.name"
-               class="form-control"
-               id="name"
-               name="name"
-               placeholder="Enter your name"
-               required #name="ngModel">
-      </div>
-      <div [hidden]="!name.pristine" class="alert alert-danger">Name is required</div>
-      <div class="form-group">
-        <label for="email">Email</label>
+        <label for="adress">adress</label>
         <input type="text" [(ngModel)]="company.email"
                class="form-control"
-               id="email"
-               name="email"
-               placeholder="Enter your email address"
-               required #email="ngModel">
-        <div [hidden]="!email.pristine" class="alert alert-danger">Email is required</div>
+               id="adress"
+               name="adress"
+               placeholder="Enter your name"
+               required #adress="ngModel">
       </div>
-      <button type="submit" [disabled]="!companyForm.form.valid"
+      <div [hidden]="!adress.pristine" class="alert alert-danger">adress is required</div>
+      <div class="form-group">
+        <label for="casino number"> Casino Numberl</label>
+        <input type="text" [(ngModel)]="company.name"
+               class="form-control"
+               id="casino number"
+               name="casino number"
+               placeholder="Enter your casino number"
+               required #casino_number="ngModel">
+        <div [hidden]="!casino_number.pristine" class="alert alert-danger">Casino_number is required</div>
+      </div>
+      <button type="submit" [disabled]="!testForm.form.valid"
               class="btn btn-info">Submit</button>
     </form>
   </div>

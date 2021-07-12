@@ -9,7 +9,7 @@ export class CompanyServiceService {
   private companyUrl: string;
 
   constructor(private http: HttpClient) {
-    this.companyUrl = 'http://localhost:8080/users';
+    this.companyUrl = 'http://localhost:5432/Company';
   }
 
   public findAll(): Observable<Company[]> {
