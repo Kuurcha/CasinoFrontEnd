@@ -7,18 +7,29 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import {FormsModule} from "@angular/forms";
 import { Observable } from 'rxjs';
-import { CompanyListComponent } from './company-list/company-list.component';
-import { CompanyFormComponent } from './company-form/company-form.component';
+import { CompanyFormComponent} from "./listsAndForms/Company/company-form/company-form.component";
+import { CompanyListComponent} from "./listsAndForms/Company/company-list/company-list.component";
 import { CompanyServiceService} from "../service/company-service.service";
 
 import {HttpClientModule} from "@angular/common/http";
-
+import { CasinoBuidlingListComponent } from './listsAndForms/casino-building/casino-buidling-list/casino-buidling-list.component';
+import { WorkerListComponent } from './listsAndForms/worker/worker-list/worker-list.component';
+import { SlotMachineListComponent } from './listsAndForms/slot-machine/slot-machine-list/slot-machine-list.component';
+import { SlotMachineFormComponent } from './listsAndForms/slot-machine/slot-machine-form/slot-machine-form.component';
+import { WorkerFormComponent } from './listsAndForms/worker/worker-form/worker-form.component';
+import { CasinoBuildingFormComponent } from './listsAndForms/casino-building/casino-building-form/casino-building-form.component'
 
 @NgModule({
   declarations: [
     AppComponent,
     CompanyListComponent,
-    CompanyFormComponent
+    CompanyFormComponent,
+    CasinoBuidlingListComponent,
+    WorkerListComponent,
+    SlotMachineListComponent,
+    SlotMachineFormComponent,
+    WorkerFormComponent,
+    CasinoBuildingFormComponent
   ],
     imports: [
       BrowserModule,
