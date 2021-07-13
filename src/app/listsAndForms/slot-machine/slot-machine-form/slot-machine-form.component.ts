@@ -20,10 +20,12 @@ export class SlotMachineFormComponent implements OnInit {
   }
   onSubmit() {
     this.slotMachineService.save(this.slotMachine).subscribe(result => this.gotoList());
+    this.gotoList();
   }
 
   gotoList() {
-    this.router.navigate(['/SlotMachine']);
+    this.router.navigate(['/Slot Machine']);
+    console.log('go to list triggered');
   }
 
   ngOnInit(): void {

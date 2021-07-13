@@ -22,7 +22,8 @@ export class CompanyFormComponent implements OnInit {
   }
 
   gotoList() {
-    this.router.navigate(['/Сompany']);
+    this.router.navigate(['/Company']);
+    console.log('go to list triggered');
   }
 
   ngOnInit(): void {

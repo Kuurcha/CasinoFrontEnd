@@ -1,29 +1,28 @@
 <div class="card my-5">
   <div class="card-body">
-    <form (ngSubmit)="onSubmit()" #casinoBuildingForm="ngForm">
+    <form (ngSubmit)="onSubmit()" #casinoForm="ngForm">
       <div class="form-group">
-        <label for="adress">Company Name</label>
+        <label for="Building Number"> Building Number</label>
+        <input type="number" [(ngModel)]="casinoBuilding.buildingNumber"
+               class="form-control"
+               id="Building Number"
+               name="Building Number"
+               placeholder="Enter Building Number"
+               required #CasinoNumber="ngModel">
+      </div>
+      <div [hidden]="!CasinoNumber.pristine" class="alert alert-danger">Casino Building Number is required</div>
+      <div class="form-group">
+        <label for="adress"> CEO</label>
         <input type="text" [(ngModel)]="casinoBuilding.adress"
                class="form-control"
                id="adress"
                name="adress"
-               placeholder="Enter Casino Building Adress"
-               required #CompanyName="ngModel">
+               placeholder="Enter adress of the building"
+               required #ceo="ngModel">
+        <div [hidden]="!ceo.pristine" class="alert alert-danger">Building adress required</div>
       </div>
-      <div [hidden]="!CompanyName.pristine" class="alert alert-danger">Casino Building Adress is required</div>
-      <div class="form-group">
-        <label for="number"> Casino Building Number</label>
-        <input type="text" [(ngModel)]="casinoBuilding.buildingNumber"
-               class="form-control"
-               id="number"
-               name="number"
-               placeholder="Enter your casino number"
-               required #number="ngModel">
-        <div [hidden]="!number.pristine" class="alert alert-danger">Chief executive officer is required</div>
-        <button type="submit" [disabled]="!casinoBuildingForm.valid"
-                class="btn btn-info">Submit</button>
-      </div>
+      <button type="submit" [disabled]="!casinoForm.valid"
+              class="btn btn-info">Submit</button>
     </form>
   </div>
 </div>
-

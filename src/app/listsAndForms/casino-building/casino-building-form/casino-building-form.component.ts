@@ -20,11 +20,16 @@ export class CasinoBuildingFormComponent implements OnInit {
     this.casinoBuilding = new CasinoBuilding();
   }
   onSubmit() {
+    console.log(this.casinoBuilding.adress);
+    console.log('on sumbit triggered');
     this.casinoBuildingService.save(this.casinoBuilding).subscribe(result => this.gotoList());
+    console.log('on sumbit triggered');
   }
 
   gotoList() {
-    this.router.navigate(['/Сasino Building']);
+    console.log('go to list triggered');
+    this.router.navigate(['/Casino Building']);
+    console.log('go to list triggered');
   }
 
   ngOnInit(): void {

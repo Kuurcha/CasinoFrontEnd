@@ -11,13 +11,16 @@ export class CasinoBuidlingListComponent implements OnInit {
 
   casinoBuildings!: CasinoBuilding[];
 
-  constructor(private companyService: CasinoBuildingService) {
+  constructor(private casinoService: CasinoBuildingService) {
   }
 
-  ngOnInit() {
-    this.companyService.findAll().subscribe((data) => {
+  showList(){
+    this.casinoService.findAll().subscribe((data) => {
       this.casinoBuildings = data;
     });
+  }
+  ngOnInit() {
+    this.showList();
   }
 
 }

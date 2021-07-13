@@ -8,12 +8,13 @@ import {WorkerListComponent} from "./listsAndForms/worker/worker-list/worker-lis
 import {WorkerFormComponent} from "./listsAndForms/worker/worker-form/worker-form.component";
 import {SlotMachineFormComponent} from "./listsAndForms/slot-machine/slot-machine-form/slot-machine-form.component";
 import {SlotMachineListComponent} from "./listsAndForms/slot-machine/slot-machine-list/slot-machine-list.component";
+import {CasinoBuildingFormComponent} from "./listsAndForms/casino-building/casino-building-form/casino-building-form.component";
 
 const routes: Routes = [
   { path: 'Company', component: CompanyListComponent },
   { path: 'Company Add', component: CompanyFormComponent },
   { path: 'Casino Building', component: CasinoBuidlingListComponent},
-  { path: 'Casino Building Add', component: CasinoBuidlingListComponent},
+  { path: 'Casino Building Add', component: CasinoBuildingFormComponent},
   { path: 'Worker', component: WorkerListComponent},
   { path: 'Worker Add', component: WorkerFormComponent},
   { path: 'Slot Machine', component: SlotMachineListComponent},

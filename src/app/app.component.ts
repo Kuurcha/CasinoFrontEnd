@@ -18,7 +18,7 @@ export class AppComponent {
     this.radioButtonValue = 'Сompany';
   }
   onFormSubmit(){
-
+    this.radioButtonValue = 'Company';
   }
 
   changeEntity(e: any) {

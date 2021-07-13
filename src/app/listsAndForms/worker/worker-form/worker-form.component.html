@@ -3,7 +3,7 @@
     <form (ngSubmit)="onSubmit()" #workerForm="ngForm">
       <div class="form-group">
         <label for="fullname"> Full name </label>
-        <input type="text" [(ngModel)]="worker.fullname"
+        <input type="text" [(ngModel)]="worker.fullName"
                class="form-control"
                id="fullname"
                name="fullname"
@@ -23,7 +23,7 @@
       </div>
       <div class="form-group">
         <label for="datebirth"> dateOfBirth </label>
-        <input type="text" [(ngModel)]="worker.dateOfBirth"
+        <input type="date" [(ngModel)]="worker.dateOfBirth"
                class="form-control"
                id="datebirth"
                name="dateBirth"
@@ -33,7 +33,7 @@
       </div>
       <div class="form-group">
         <label for="salary">Salary</label>
-        <input type="text" [(ngModel)]="worker.salary"
+        <input type="number" [(ngModel)]="worker.salary"
                class="form-control"
                id="salary"
                name="salary"
