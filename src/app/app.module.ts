@@ -11,14 +11,14 @@ import { CompanyFormComponent} from "./listsAndForms/Company/company-form/compan
 import { CompanyListComponent} from "./listsAndForms/Company/company-list/company-list.component";
 import { CompanyServiceService} from "../service/company-service.service";
 
-import {HttpClientModule} from "@angular/common/http";
+import {HTTP_INTERCEPTORS, HttpClientModule} from "@angular/common/http";
 import { CasinoBuidlingListComponent } from './listsAndForms/casino-building/casino-buidling-list/casino-buidling-list.component';
 import { WorkerListComponent } from './listsAndForms/worker/worker-list/worker-list.component';
 import { SlotMachineListComponent } from './listsAndForms/slot-machine/slot-machine-list/slot-machine-list.component';
 import { SlotMachineFormComponent } from './listsAndForms/slot-machine/slot-machine-form/slot-machine-form.component';
 import { WorkerFormComponent } from './listsAndForms/worker/worker-form/worker-form.component';
 import { CasinoBuildingFormComponent } from './listsAndForms/casino-building/casino-building-form/casino-building-form.component'
-
+import { InterceptorService } from './services/interceptor.service';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +29,7 @@ import { CasinoBuildingFormComponent } from './listsAndForms/casino-building/cas
     SlotMachineListComponent,
     SlotMachineFormComponent,
     WorkerFormComponent,
-    CasinoBuildingFormComponent
+    CasinoBuildingFormComponent,
   ],
   imports: [
     BrowserModule,
@@ -37,9 +37,16 @@ import { CasinoBuildingFormComponent } from './listsAndForms/casino-building/cas
     HttpClientModule,
     FormsModule,
     AppRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
   ],
-  providers: [CompanyServiceService],
+  providers: [
+    CompanyServiceService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: InterceptorService,
+      multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

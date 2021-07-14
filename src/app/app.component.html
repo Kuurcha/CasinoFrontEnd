@@ -19,6 +19,7 @@
         </div>
 
       </div>
+      <h3 style="color:red; text-align: center"> {{ errorMessage }}</h3>
       <input type="radio" value="Company" name="entityType"    [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)"> Company
       <input type="radio" value="Casino Building" name="entityType" [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)" > Casino Building
       <input type="radio" value="Slot Machine" name="entityType"  [ngModel] = "this.radioButtonValue" (change)="changeEntity($event)"> Slot Machine
@@ -26,6 +27,7 @@
       <form [formGroup]="entityForm" (ngSubmit)="onFormSubmit()">
 
       </form>
+
       <router-outlet></router-outlet>
 
     </div>

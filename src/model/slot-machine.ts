@@ -1,5 +1,5 @@
 export class SlotMachine {
-  id!: string;
+  id!: bigint;
   slotNumber!: bigint;
   gameName!: string;
   paymentDispersion!: number;

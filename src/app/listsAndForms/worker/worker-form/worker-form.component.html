@@ -40,9 +40,22 @@
                placeholder="0"
                required #salary="ngModel">
         <div [hidden]="!salary.pristine" class="alert alert-danger">Salary is required (usually) </div>
+        <div>
+          <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress">
+            <option value="volvo"> </option>
+            <option *ngFor="let adress of casinoAdresses"  [value]="adress"> {{ adress }}</option>
+          </select>
+<!--          <mat-select (click)="onDropDownClick()"  placeholder="Status" name="option" required>-->
+<!--            <mat-option></mat-option>-->
+<!--            <mat-option *ngFor="let adress of casinoAdresses"  [value]="adress">-->
+<!--              {{ adress }}-->
+<!--            </mat-option>-->
+<!--          </mat-select>-->
+        </div>
       </div>
       <button type="submit" [disabled]="!workerForm.valid"
               class="btn btn-info">Submit</button>
+
     </form>
   </div>
 </div>

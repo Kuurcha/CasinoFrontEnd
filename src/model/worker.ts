@@ -1,7 +1,8 @@
 export class Worker {
-  id!: string;
+  id!: bigint;
   fullName!: string;
   salary!: bigint;
   dateOfBirth!:Date;
   occupation!:string;
+  fk_casino_id!: string;
 }

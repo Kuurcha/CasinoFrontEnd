@@ -1,5 +1,5 @@
 export class CasinoBuilding {
-  id!: string;
+  id!: bigint;
   buildingNumber!: bigint;
   adress!: string;
 

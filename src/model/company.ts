@@ -1,5 +1,5 @@
 export class Company {
-  id!:string;
+  id!:bigint;
   companyName!: string;
   ceo!: string;
   sharePrice!: number;
