@@ -55,10 +55,14 @@ export class InterceptorService implements HttpInterceptor {
               // server-side error
               console.log(error)
               if (error.error!=null && error.error.httpStatus!=null && error.error.message != null){
-
+                console.log("custom message")
                 errorMessage = `Server-side Error Code: ${error.error.httpStatus}\nMessage: ${error.error.message}}`;
               }
-              errorMessage = `Server-side Error Code: ${error.statusText} \nMessage: ${error.message}`
+              else
+              {
+                errorMessage = `Server-side Error Code: ${error.statusText} \nMessage: ${error.message}`
+              }
+
 
 
             }

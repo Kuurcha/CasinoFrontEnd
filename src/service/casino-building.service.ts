@@ -30,6 +30,16 @@ export class CasinoBuildingService {
       );
     });
   }
+  public put(id:String, casinoBuilding:CasinoBuilding){
+    return new Promise((resolve)  => {
+      let path = this.casinoBuildingUrl + "/" + id
+      console.log("put request" + path)
+      let temp = this.http.put<CasinoBuilding>(path, CasinoBuilding)
+        .subscribe( () => {
+          resolve(temp);
+        });
+    });
+  }
   public save(casinoBuilding: CasinoBuilding) {
     return this.http.post<CasinoBuilding>(this.casinoBuildingUrl, casinoBuilding);
   }

@@ -10,7 +10,7 @@
                placeholder="0"
                required #SlotNumber="ngModel">
       </div>
-      <div [hidden]="!SlotNumber.pristine" class="alert alert-danger">Number of Machine is required</div>
+      <div [hidden]="!SlotNumber.invalid" class="alert alert-danger">Number of Machine is required</div>
 
       <div class="form-group">
         <label for="Game Name"> CEO</label>
@@ -20,7 +20,7 @@
                name="Game Name"
                placeholder="Enter Game Name"
                required #gameName="ngModel">
-        <div [hidden]="!gameName.pristine" class="alert alert-danger">Game Name is required</div>
+        <div [hidden]="!gameName.invalid" class="alert alert-danger">Game Name is required</div>
       </div>
       <div class="form-group">
         <label for="cash"> Cash remaining</label>
@@ -30,7 +30,7 @@
                name="cash"
                placeholder="0"
                required #cashmoney="ngModel">
-        <div [hidden]="!cashmoney.pristine" class="alert alert-danger">Share Price is required</div>
+        <div [hidden]="!cashmoney.invalid" class="alert alert-danger">Share Price is required</div>
       </div>
       <div class="form-group">
       <label for="dispersion"> Dispersion</label>
@@ -40,12 +40,16 @@
              name="dispersion"
              placeholder="0"
              required #dispersion="ngModel">
-      <div [hidden]="!dispersion.pristine" class="alert alert-danger">Dispersion required!</div>
+      <div [hidden]="!dispersion.invalid" class="alert alert-danger">Dispersion required!</div>
+        <pre>        </pre>
         <div>
-          <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress">
+          <div class="form-group">
+          <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress" required #dropdown = "ngModel">
             <option disabled selected value> -- select an option -- </option>
             <option *ngFor="let adress of casinoAdresses"  [value]="adress"> {{ adress }}</option>
           </select>
+          </div>
+          <div [hidden]="!dropdown.pristine" class="alert alert-danger">Choose adress of Casino Building of origin!</div>
         </div>
         <pre>        </pre>
       <button type="submit" [disabled]="!slotForm.valid"

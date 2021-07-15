@@ -26,6 +26,18 @@ export class SlotMachineFormComponent extends DerivedFromCasinoBuilding {
 
     super(route, router, casinoService)
     this.slotMachine = new SlotMachine();
+    if (this.slotMachineService.editMode){
+      let buffer = this.slotMachineService.buffer;
+      this.slotMachine.id = buffer.id;
+      this.slotMachine.slotNumber = buffer.slotNumber;
+      this.slotMachine.gameName = buffer.gameName;
+      this.slotMachine.paymentDispersion = buffer.paymentDispersion;
+      this.slotMachine.cashRemains = buffer.cashRemains;
+      this.slotMachine.fk_casino_id = buffer.fk_casino_id;
+
+
+    }
+
   }
 
   public updateDropDownCall (){
@@ -36,12 +48,24 @@ export class SlotMachineFormComponent extends DerivedFromCasinoBuilding {
   }
   onSubmit() {
     console.log("onSumbit: " + this.casinoAdress)
-    this.getIdByAdress(this.casinoAdress).then((resolve:any) => {
-      this.slotMachine.fk_casino_id = this.casinoId
+    if (this.slotMachineService.editMode){
+      this.getIdByAdress(this.casinoAdress).then( () => {
+        this.slotMachine.fk_casino_id = this.casinoId
+      });
       console.log(this.casinoId)
       console.log(this.slotMachine)
-      this.slotMachineService.save(this.slotMachine).subscribe(result => goToPath("/Slot Machine", this.router));
-    })
+      this.slotMachineService.put(this.slotMachine.id, this.slotMachine).subscribe(result => goToPath("/Slot Machine", this.router));
+    }
+    else {
+      this.getIdByAdress(this.casinoAdress).then((resolve:any) => {
+        this.slotMachine.fk_casino_id = this.casinoId
+        console.log(this.casinoId)
+        console.log(this.slotMachine)
+        this.slotMachineService.save(this.slotMachine).subscribe(result => goToPath("/Slot Machine", this.router));
+      })
+    }
+
+
 
   }
 

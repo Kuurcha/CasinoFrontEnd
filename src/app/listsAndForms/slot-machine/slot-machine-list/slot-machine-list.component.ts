@@ -49,6 +49,14 @@ export class SlotMachineListComponent implements OnInit {
 
   update($event: MouseEvent) {
     console.log();
+    let elementId: string = (($event.target as Element).id).substr(1);
+    let original = this.slotMachineService.findById(elementId).subscribe((data) => {
+      this.slotMachineService.buffer = data;
+      this.slotMachineService.editMode = true;
+      goToPath("/Slot Machine Add", this.router)
+    });
+
+
   }
 
 

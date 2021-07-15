@@ -9,7 +9,7 @@ import {SlotMachine} from "../model/slot-machine";
 @Injectable()
 export class CompanyServiceService {
 
-  private companyUrl: string;
+  public companyUrl: string;
 
   constructor(private http: HttpClient) {
     this.companyUrl = 'http://localhost:5433/Company';
@@ -29,6 +29,7 @@ export class CompanyServiceService {
       );
     });
   }
+
   public save(company: Company) {
     return this.http.post<Company>(this.companyUrl, company);
   }
