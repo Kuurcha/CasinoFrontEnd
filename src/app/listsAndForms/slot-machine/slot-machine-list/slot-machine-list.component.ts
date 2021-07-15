@@ -35,8 +35,16 @@ export class SlotMachineListComponent implements OnInit {
     let elementId: string = (($event.target as Element).id).substr(1);
     console.log(elementId);
     this.slotMachineService.deleteById(elementId).then((resolve:any) =>{
+      if (this.slotMachines.length > 1){
+        this.goList();
+      }
+      else {
+        this.slotMachines = []
+        goToPath("/Slot Machine", this.router)
+      }
       this.goList();
     })
+
   }
 
   update($event: MouseEvent) {

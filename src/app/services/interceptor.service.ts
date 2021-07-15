@@ -31,27 +31,43 @@ export class InterceptorService implements HttpInterceptor {
         retry(1),
 
         catchError((error: HttpErrorResponse) => {
-
           let errorMessage = '';
+          if (error.status ==  404){
 
-          if (error.error instanceof ErrorEvent) {
+            window.alert("404 чета не так какое 404");
+            return throwError("404 чета не так, какое 404");
+          }
+          else
+          {
 
-            // client-side error
 
-            errorMessage = `Client-side Error: ${error.error.message}\n ${error.name}`;
+            if (error.error instanceof ErrorEvent) {
 
-          } else {
+              // client-side error
+              if (error.error.message!=null){
+                errorMessage = `Client-side Error: ${error.error.message}\n ${error.name}`;
+              }
 
-            // server-side error
-            console.log(errorMessage)
+              errorMessage = `Client-side Error:` +  error.message + ` stack ` + error.name
 
-            errorMessage = `Server-side Error Code: ${error.error.httpStatus}\nMessage: ${error.error.message}}`;
+            } else {
 
+              // server-side error
+              console.log(error)
+              if (error.error!=null && error.error.httpStatus!=null && error.error.message != null){
+
+                errorMessage = `Server-side Error Code: ${error.error.httpStatus}\nMessage: ${error.error.message}}`;
+              }
+              errorMessage = `Server-side Error Code: ${error.statusText} \nMessage: ${error.message}`
+
+
+            }
+
+            window.alert(errorMessage);
+
+            return throwError(errorMessage);
           }
 
-          window.alert(errorMessage);
-
-          return throwError(errorMessage);
 
         })
 

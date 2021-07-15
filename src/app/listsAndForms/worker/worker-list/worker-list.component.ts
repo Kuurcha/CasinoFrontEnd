@@ -3,6 +3,8 @@ import {SlotMachine} from "../../../../model/slot-machine";
 import {SlotMachineService} from "../../../../service/slot-machine.service";
 import { Worker } from "../../../../model/worker"
 import {WorkerService} from "../../../../service/worker.service";
+import {goToPath} from "../../../myFunctions";
+import {Router} from "@angular/router";
 @Component({
   selector: 'app-worker-list',
   templateUrl: './worker-list.component.html',
@@ -12,7 +14,7 @@ export class WorkerListComponent implements OnInit {
 
   workers!: Worker[];
 
-  constructor(private workerService: WorkerService) {
+  constructor(private workerService: WorkerService, private router: Router) {
   }
 
   goList(){
@@ -27,8 +29,15 @@ export class WorkerListComponent implements OnInit {
     let elementId: string = (($event.target as Element).id).substr(1);
     console.log(elementId);
     this.workerService.deleteById(elementId).then((resolve:any) =>{
-      this.goList();
+      if (this.workers.length > 1){
+        this.goList();
+      }
+      else {
+        this.workers = []
+        goToPath("/Worker", this.router)
+      }
     })
+
   }
   update($event: MouseEvent) {
 
