@@ -8,24 +8,24 @@ import {CasinoBuildingService} from "../../../../service/casino-building.service
 //npm install --save @angular/material
 import {MatSelectModule} from "@angular/material/select"
 import {goToPath} from "../../../myFunctions";
+import {DerivedFromCasinoBuilding} from "../../../../parents/derivedFromCasinoBuilding";
 
 @Component({
   selector: 'app-worker-form',
   templateUrl: './worker-form.component.html',
   styleUrls: ['./worker-form.component.css']
 })
-export class WorkerFormComponent implements OnInit {
+export class WorkerFormComponent extends DerivedFromCasinoBuilding   {
 
   worker!: Worker
-  casinoBuildings!: CasinoBuilding[];
-  casinoAdresses!: string[];
-  casinoId!: string;
-  casinoAdress!: string;
-  constructor(
-    private route: ActivatedRoute,
-    private router: Router,
-    private workerService: WorkerService,
-    private casinoService: CasinoBuildingService) {
+  constructor(    protected route: ActivatedRoute,
+                  protected router: Router,
+                  protected workerService: WorkerService,
+                  protected casinoService: CasinoBuildingService
+
+  ){
+
+    super(route, router, casinoService)
     this.worker = new Worker();
   }
 
@@ -34,31 +34,6 @@ export class WorkerFormComponent implements OnInit {
         this.updateDropDown().then((resolve:any) => {
         })
       })
-  }
-
-  showList(){
-    return  new Promise((resolve, reject) => {
-      console.log("showList");
-      this.casinoService.findAll().subscribe((data) => {
-        this.casinoBuildings = data;
-        console.log(data);
-        resolve("Ok!");
-      });
-      console.log("showList end");
-
-    });
-  }
-
-  updateDropDown(){
-    return new Promise((resolve)  => {
-      console.log("updateDropDown")
-      this.casinoAdresses = [];
-      let arrayLength = this.casinoBuildings.length;
-      for (let i = 0; i < this.casinoBuildings.length; i++) {
-        this.casinoAdresses.push(this.casinoBuildings[i].adress);
-      }
-      resolve("Ok!");
-    })
   }
   onSubmit() {
       console.log("onSumbit: " + this.casinoAdress)
@@ -70,31 +45,8 @@ export class WorkerFormComponent implements OnInit {
     })
 
   }
-  getIdByAdress(adress: string) {
-    return new Promise((resolve)  => {
-      if (Array.isArray(this.casinoBuildings)) {
-        for (let i = 0; i < this.casinoBuildings.length; i++) {
-          let elem = this.casinoBuildings[i];
-          console.log("desired adress " + adress + " current adress " + elem.adress)
-
-          if (elem.adress === adress) {
-            this.casinoId = String(elem.id);
-            break;
-          }
-        }
-      }
-      resolve("Ok!")
-    })
-  }
-
-
 
   onDropDownClick(){
   this.updateDropDownCall();
-  }
-
-
-  ngOnInit(): void {
-
   }
 }

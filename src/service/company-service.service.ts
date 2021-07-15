@@ -4,6 +4,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 import {Company} from "../model/company";
+import {SlotMachine} from "../model/slot-machine";
 
 @Injectable()
 export class CompanyServiceService {
@@ -14,8 +15,8 @@ export class CompanyServiceService {
     this.companyUrl = 'http://localhost:5433/Company';
   }
 
-  public findAll(): Observable<any> {
-    return this.http.get(this.companyUrl);
+  public findAll(): Observable<Company[]> {
+    return this.http.get<Company[]>(this.companyUrl);
   }
 
   public save(company: Company) {

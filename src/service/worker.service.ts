@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import {Injectable, OnInit} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Worker} from "../model/worker";
@@ -6,7 +6,7 @@ import {Worker} from "../model/worker";
 @Injectable({
   providedIn: 'root'
 })
-export class WorkerService {
+export class WorkerService implements OnInit{
 
   private workerUrl: string;
 
@@ -20,5 +20,8 @@ export class WorkerService {
 
   public save(worker: Worker) {
     return this.http.post<Worker>(this.workerUrl, worker);
+  }
+
+  ngOnInit(): void {
   }
 }

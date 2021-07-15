@@ -4,4 +4,5 @@ export class SlotMachine {
   gameName!: string;
   paymentDispersion!: number;
   cashRemains!: number;
+  fk_casino_id!: string;
 }

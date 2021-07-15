@@ -1,26 +1,61 @@
-import { Injectable } from '@angular/core';
 import {
-  HttpInterceptor, HttpRequest,
-  HttpHandler, HttpEvent, HttpErrorResponse
+
+  HttpEvent,
+
+  HttpInterceptor,
+
+  HttpHandler,
+
+  HttpRequest,
+
+  HttpResponse,
+
+  HttpErrorResponse
+
 } from '@angular/common/http';
+
 import { Observable, throwError } from 'rxjs';
-import { catchError } from 'rxjs/operators';
-import {AppComponent} from "../app.component";
-@Injectable({
-  providedIn: 'root'
-})
-export class InterceptorService implements HttpInterceptor{
-  constructor() { }
-  handleError(error: HttpErrorResponse){
-    // this.mainApp.errorMessage = "Error!"
-    console.log("error happend!");
-    return throwError(error);
-  }
-  intercept(req: HttpRequest<any>, next: HttpHandler):
-    Observable<HttpEvent<any>>{
-    return next.handle(req)
+
+import { retry, catchError } from 'rxjs/operators';
+
+
+
+export class InterceptorService implements HttpInterceptor {
+
+  intercept(request: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
+    return next.handle(request)
+
       .pipe(
-        catchError(this.handleError)
+
+        retry(1),
+
+        catchError((error: HttpErrorResponse) => {
+
+          let errorMessage = '';
+
+          if (error.error instanceof ErrorEvent) {
+
+            // client-side error
+
+            errorMessage = `Error: ${error.error.message}`;
+
+          } else {
+
+            // server-side error
+
+            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+
+          }
+
+          window.alert(errorMessage);
+
+          return throwError(errorMessage);
+
+        })
+
       )
-  };
+
+  }
+
 }

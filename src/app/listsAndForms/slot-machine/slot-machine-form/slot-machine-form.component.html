@@ -41,6 +41,11 @@
              placeholder="0"
              required #dispersion="ngModel">
       <div [hidden]="!dispersion.pristine" class="alert alert-danger">Dispersion required!</div>
+        <div>
+          <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress">
+            <option *ngFor="let adress of casinoAdresses"  [value]="adress"> {{ adress }}</option>
+          </select>
+        </div>
       <button type="submit" [disabled]="!slotForm.valid"
               class="btn btn-info">Submit</button>
       </div>

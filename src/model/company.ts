@@ -4,4 +4,5 @@ export class Company {
   ceo!: string;
   sharePrice!: number;
 
+
 }

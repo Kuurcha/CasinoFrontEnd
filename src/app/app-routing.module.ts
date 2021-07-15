@@ -9,6 +9,7 @@ import {WorkerFormComponent} from "./listsAndForms/worker/worker-form/worker-for
 import {SlotMachineFormComponent} from "./listsAndForms/slot-machine/slot-machine-form/slot-machine-form.component";
 import {SlotMachineListComponent} from "./listsAndForms/slot-machine/slot-machine-list/slot-machine-list.component";
 import {CasinoBuildingFormComponent} from "./listsAndForms/casino-building/casino-building-form/casino-building-form.component";
+import {SharedService} from "./shared/shared.service";
 
 const routes: Routes = [
   { path: 'Company', component: CompanyListComponent },

@@ -14,6 +14,7 @@ export class CasinoBuidlingListComponent implements OnInit {
   constructor(private casinoService: CasinoBuildingService) {
   }
 
+
   showList(){
     this.casinoService.findAll().subscribe((data) => {
       this.casinoBuildings = data;

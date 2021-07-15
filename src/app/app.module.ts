@@ -19,6 +19,8 @@ import { SlotMachineFormComponent } from './listsAndForms/slot-machine/slot-mach
 import { WorkerFormComponent } from './listsAndForms/worker/worker-form/worker-form.component';
 import { CasinoBuildingFormComponent } from './listsAndForms/casino-building/casino-building-form/casino-building-form.component'
 import { InterceptorService } from './services/interceptor.service';
+import { SharedService} from "./shared/shared.service";
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -44,7 +46,7 @@ import { InterceptorService } from './services/interceptor.service';
     {
       provide: HTTP_INTERCEPTORS,
       useClass: InterceptorService,
-      multi: true
+      multi: true,
     }
   ],
   bootstrap: [AppComponent]

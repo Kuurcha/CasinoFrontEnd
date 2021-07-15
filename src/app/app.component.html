@@ -10,10 +10,10 @@
               <ul class="text-center list-inline py-3">
 
             <li class="list-inline-item">
-              <a [routerLink]="'/' + radioButtonValue" class="btn btn-info"> List {{ this.radioButtonValue}}</a>
+              <a [routerLink]="'/' + radioButtonValue" class="btn btn-info" (click)="onClickMe()"> List {{ this.radioButtonValue}}</a>
             </li>
             <li class="list-inline-item">
-              <a [routerLink]=" '/' + radioButtonValue + ' Add' " class="btn btn-info">Add {{ this.radioButtonValue}}</a>
+              <a [routerLink]=" '/' + radioButtonValue + ' Add' " class="btn btn-info " (click)="onClickMe()">Add {{ this.radioButtonValue}}</a>
             </li>
           </ul>
         </div>
