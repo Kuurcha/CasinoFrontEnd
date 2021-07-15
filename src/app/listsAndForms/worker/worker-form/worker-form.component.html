@@ -42,10 +42,12 @@
         <div [hidden]="!salary.pristine" class="alert alert-danger">Salary is required (usually) </div>
         <div>
           <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress">
+            <option disabled selected value> -- select an option -- </option>
             <option *ngFor="let adress of casinoAdresses"  [value]="adress"> {{ adress }}</option>
           </select>
         </div>
       </div>
+      <pre>        </pre>
       <button type="submit" [disabled]="!workerForm.valid"
               class="btn btn-info">Submit</button>
 

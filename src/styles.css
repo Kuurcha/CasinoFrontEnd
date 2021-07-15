@@ -1,1 +1,26 @@
 /* You can add global styles to this file, and also import other style files */
+
+.buttonEdit {
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  background-color: #A1A849
+}
+.buttonDelete {
+  border: none;
+  color: white;
+
+  text-align: center;
+  text-decoration: none;
+  width: 100%;
+  height: 100%;
+  display: block;
+  cursor: pointer;
+  background-color: #AE3737
+}

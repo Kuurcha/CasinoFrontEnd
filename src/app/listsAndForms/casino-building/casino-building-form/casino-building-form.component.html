@@ -22,10 +22,13 @@
         <div [hidden]="!ceo.pristine" class="alert alert-danger">Building adress required</div>
       </div>
       <div>
+
         <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="companyName">
-          <option *ngFor="let name of companyNames"  [value]="name"> {{ name }}</option>
+          <option disabled selected value> -- select an option -- </option>
+          <option *ngFor="let name of companyNames"  [value]="name"  selected = "true" ><pre>{{ name }}</pre> </option>
         </select>
       </div>
+      <pre>        </pre>
       <button type="submit" [disabled]="!casinoForm.valid"
               class="btn btn-info">Submit</button>
     </form>

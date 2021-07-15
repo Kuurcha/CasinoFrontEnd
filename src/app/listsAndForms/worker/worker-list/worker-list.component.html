@@ -3,6 +3,7 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
+        <th> </th>
         <th scope="col">db ID </th>
         <th scope="col">Full name</th>
         <th scope="col">Occupation</th>
@@ -12,6 +13,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let worker of workers">
+        <button type="button"  (click)="update($event)" class = "buttonEdit"  id= "{{worker.id}}" >Edit</button>
+        <button type="button" (click)="delete($event)" class = "buttonDelete" id=" {{worker.id}}"  > X </button>
         <td>{{ worker.id }}</td>
         <td>{{ worker.fullName }}</td>
         <td>{{ worker.occupation}}</td>

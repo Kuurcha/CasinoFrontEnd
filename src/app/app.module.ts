@@ -18,8 +18,9 @@ import { SlotMachineListComponent } from './listsAndForms/slot-machine/slot-mach
 import { SlotMachineFormComponent } from './listsAndForms/slot-machine/slot-machine-form/slot-machine-form.component';
 import { WorkerFormComponent } from './listsAndForms/worker/worker-form/worker-form.component';
 import { CasinoBuildingFormComponent } from './listsAndForms/casino-building/casino-building-form/casino-building-form.component'
-import { InterceptorService } from './services/interceptor.service';
+// import { InterceptorService } from './services/interceptor.service';
 import { SharedService} from "./shared/shared.service";
+import {InterceptorService} from "./services/interceptor.service";
 
 @NgModule({
   declarations: [

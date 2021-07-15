@@ -27,6 +27,7 @@ export class WorkerFormComponent extends DerivedFromCasinoBuilding   {
 
     super(route, router, casinoService)
     this.worker = new Worker();
+
   }
 
   public updateDropDownCall (){

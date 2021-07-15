@@ -15,10 +15,24 @@ export class WorkerListComponent implements OnInit {
   constructor(private workerService: WorkerService) {
   }
 
-  ngOnInit() {
+  goList(){
     this.workerService.findAll().subscribe((data) => {
       this.workers = data;
     });
   }
+  ngOnInit() {
+   this.goList();
+  }
+  delete($event: MouseEvent) {
+    let elementId: string = (($event.target as Element).id).substr(1);
+    console.log(elementId);
+    this.workerService.deleteById(elementId).then((resolve:any) =>{
+      this.goList();
+    })
+  }
+  update($event: MouseEvent) {
+
+  }
+
 
 }

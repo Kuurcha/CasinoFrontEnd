@@ -15,11 +15,25 @@ export class CompanyListComponent implements OnInit {
   constructor(private companyService: CompanyServiceService) {
   }
 
-  ngOnInit() {
+  goList(){
     this.companyService.findAll().subscribe((data) => {
       this.companies = data;
     });
   }
 
+  ngOnInit() {
+    this.goList();
+  }
 
+
+  update($event: MouseEvent) {
+
+  }
+  delete($event: MouseEvent) {
+    let elementId: string = (($event.target as Element).id).substr(1);
+    console.log(elementId);
+    this.companyService.deleteById(elementId).then((resolve:any) =>{
+      this.goList();
+    })
+  }
 }

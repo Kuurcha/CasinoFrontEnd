@@ -14,14 +14,25 @@ export class CasinoBuidlingListComponent implements OnInit {
   constructor(private casinoService: CasinoBuildingService) {
   }
 
-
-  showList(){
+  goList(){
     this.casinoService.findAll().subscribe((data) => {
       this.casinoBuildings = data;
     });
   }
+
   ngOnInit() {
-    this.showList();
+    this.goList();
   }
 
+  update($event: MouseEvent) {
+
+  }
+
+  delete($event: MouseEvent) {
+    let elementId: string = (($event.target as Element).id).substr(1);
+    console.log(elementId);
+    this.casinoService.deleteById(elementId).then((resolve:any) =>{
+      this.goList();
+    })
+  }
 }

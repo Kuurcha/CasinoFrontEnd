@@ -38,13 +38,14 @@ export class InterceptorService implements HttpInterceptor {
 
             // client-side error
 
-            errorMessage = `Error: ${error.error.message}`;
+            errorMessage = `Client-side Error: ${error.error.message}\n ${error.name}`;
 
           } else {
 
             // server-side error
+            console.log(errorMessage)
 
-            errorMessage = `Error Code: ${error.status}\nMessage: ${error.message}`;
+            errorMessage = `Server-side Error Code: ${error.error.httpStatus}\nMessage: ${error.error.message}}`;
 
           }
 

@@ -3,6 +3,7 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
+        <th></th>
         <th scope="col">db ID </th>
         <th scope="col">Company Name</th>
         <th scope="col">CEO</th>
@@ -11,6 +12,8 @@
       </thead>
       <tbody>
       <tr *ngFor="let company of companies">
+        <button type="button"  (click)="update($event)" class = "buttonEdit"  id= "e{{company.id}}" >Edit</button>
+        <button type="button" (click)="delete($event)" class = "buttonDelete" id="d{{company.id}}"  > X </button>
         <td>{{ company.id }}</td>
         <td>{{ company.companyName }}</td>
         <td>{{ company.ceo }}</td>

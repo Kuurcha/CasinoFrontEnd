@@ -3,6 +3,7 @@
     <table class="table table-bordered table-striped">
       <thead class="thead-dark">
       <tr>
+        <th></th>
         <th scope="col">db ID </th>
         <th scope="col">Slot number</th>
         <th scope="col">The name of the game</th>
@@ -12,6 +13,9 @@
       </thead>
       <tbody>
       <tr *ngFor="let slotMachine of slotMachines">
+
+        <button type="button"  (click)="update($event)" class = "buttonEdit"  id="e{{slotMachine.id}}" >Edit</button>
+        <button type="button" (click)="delete($event)" class = "buttonDelete" id="d{{slotMachine.id}}"  > X </button>
         <td>{{ slotMachine.id }}</td>
         <td>{{ slotMachine.slotNumber }}</td>
         <td>{{ slotMachine.gameName}}</td>
