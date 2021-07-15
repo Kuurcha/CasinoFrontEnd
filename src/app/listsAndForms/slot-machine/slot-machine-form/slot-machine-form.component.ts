@@ -9,6 +9,7 @@ import {DerivedFromCasinoBuilding} from "../../../../parents/derivedFromCasinoBu
 import {WorkerService} from "../../../../service/worker.service";
 import {CasinoBuildingService} from "../../../../service/casino-building.service";
 import {Worker} from "../../../../model/worker";
+import {CasinoBuilding} from "../../../../model/casino-building";
 
 @Component({
   selector: 'app-slot-machine-form',
@@ -34,8 +35,6 @@ export class SlotMachineFormComponent extends DerivedFromCasinoBuilding {
       this.slotMachine.paymentDispersion = buffer.paymentDispersion;
       this.slotMachine.cashRemains = buffer.cashRemains;
       this.slotMachine.fk_casino_id = buffer.fk_casino_id;
-
-
     }
 
   }
@@ -54,7 +53,12 @@ export class SlotMachineFormComponent extends DerivedFromCasinoBuilding {
       });
       console.log(this.casinoId)
       console.log(this.slotMachine)
-      this.slotMachineService.put(this.slotMachine.id, this.slotMachine).subscribe(result => goToPath("/Slot Machine", this.router));
+      this.slotMachineService.put(this.slotMachine.id, this.slotMachine).subscribe(result =>{
+        this.slotMachineService.editMode = false;
+        goToPath("/Slot Machine", this.router);
+      });
+
+
     }
     else {
       this.getIdByAdress(this.casinoAdress).then((resolve:any) => {

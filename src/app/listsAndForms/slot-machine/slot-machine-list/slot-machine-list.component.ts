@@ -55,8 +55,6 @@ export class SlotMachineListComponent implements OnInit {
       this.slotMachineService.editMode = true;
       goToPath("/Slot Machine Add", this.router)
     });
-
-
   }
 
 

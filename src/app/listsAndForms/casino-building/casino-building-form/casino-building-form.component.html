@@ -10,7 +10,7 @@
                placeholder="Enter Building Number"
                required #CasinoNumber="ngModel">
       </div>
-      <div [hidden]="!CasinoNumber.pristine" class="alert alert-danger">Casino Building Number is required</div>
+      <div [hidden]="!CasinoNumber.invalid" class="alert alert-danger">Casino Building Number is required</div>
       <div class="form-group">
         <label for="adress"> CEO</label>
         <input type="text" [(ngModel)]="casinoBuilding.adress"
@@ -19,14 +19,18 @@
                name="adress"
                placeholder="Enter adress of the building"
                required #ceo="ngModel">
-        <div [hidden]="!ceo.pristine" class="alert alert-danger">Building adress required</div>
+        <div [hidden]="!ceo.invalid" class="alert alert-danger">Building adress required</div>
       </div>
       <div>
-
-        <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="companyName">
-          <option disabled selected value> -- select an option -- </option>
-          <option *ngFor="let name of companyNames"  [value]="name"  selected = "true" ><pre>{{ name }}</pre> </option>
-        </select>
+        <pre>        </pre>
+        <div class="form-group">
+            <select (click)="onDropDownClick()" name="buildingDropDown"  [(ngModel)]="companyName" required #dropdown = "ngModel">
+              <option disabled selected value> -- select an option -- </option>
+              <option *ngFor="let name of companyNames"  [value]="name"  selected = "true" ><pre>{{ name }}</pre> </option>
+            </select>
+        </div>
+        <div [hidden]="!dropdown.pristine" class="alert alert-danger">Choose name of Company of origin!</div>
+        <pre>        </pre>
       </div>
       <pre>        </pre>
       <button type="submit" [disabled]="!casinoForm.valid"

@@ -10,7 +10,7 @@
                placeholder="Enter name here"
                required #workerName="ngModel">
       </div>
-      <div [hidden]="!workerName.pristine" class="alert alert-danger">Name of the worker required!</div>
+      <div [hidden]="!salary.invalid" class="alert alert-danger">Name of the worker required!</div>
       <div class="form-group">
         <label for="occupation"> Occupation </label>
         <input type="text" [(ngModel)]="worker.occupation"
@@ -19,7 +19,7 @@
                name="occupation"
                placeholder="Enter occupation here"
                required #workerOccupation="ngModel">
-        <div [hidden]="!workerOccupation.pristine" class="alert alert-danger">Ocupation required!</div>
+        <div [hidden]="!salary.invalid" class="alert alert-danger">Ocupation required!</div>
       </div>
       <div class="form-group">
         <label for="datebirth"> dateOfBirth </label>
@@ -29,7 +29,7 @@
                name="dateBirth"
                placeholder="01-01-1970"
                required #datebirth="ngModel">
-        <div [hidden]="!datebirth.pristine" class="alert alert-danger">Date of birth required</div>
+        <div [hidden]="!salary.invalid" class="alert alert-danger">Date of birth required</div>
       </div>
       <div class="form-group">
         <label for="salary">Salary</label>
@@ -39,12 +39,15 @@
                name="salary"
                placeholder="0"
                required #salary="ngModel">
-        <div [hidden]="!salary.pristine" class="alert alert-danger">Salary is required (usually) </div>
+        <div [hidden]="!salary.invalid" class="alert alert-danger">Salary is required (usually) </div>
         <div>
-          <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress">
+          <pre>        </pre>
+          <select (click)="onDropDownClick()" name="buildingDropDown" id="cars" [(ngModel)]="casinoAdress"
+          required #dropdown = "ngModel">
             <option disabled selected value> -- select an option -- </option>
             <option *ngFor="let adress of casinoAdresses"  [value]="adress"> {{ adress }}</option>
           </select>
+          <div [hidden]="!dropdown.pristine" class="alert alert-danger">Choose adress of Casino Building of origin!</div>
         </div>
       </div>
       <pre>        </pre>

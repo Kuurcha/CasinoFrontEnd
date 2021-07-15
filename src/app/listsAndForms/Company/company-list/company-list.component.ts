@@ -29,9 +29,16 @@ export class CompanyListComponent implements OnInit {
 
 
   update($event: MouseEvent) {
+      let elementId: string = (($event.target as Element).id).substr(1);
+      let original = this.companyService.findById(elementId).subscribe((data) => {
+        this.companyService.buffer = data;
+        this.companyService.editMode = true;
+        goToPath("/Company Add", this.router)
+      });
+    }
 
-  }
-  delete($event: MouseEvent) {
+
+    delete($event: MouseEvent) {
     let elementId: string = (($event.target as Element).id).substr(1);
     console.log(elementId);
     this.companyService.deleteById(elementId).then((resolve:any) =>{

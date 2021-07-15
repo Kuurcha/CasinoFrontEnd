@@ -40,7 +40,15 @@ export class WorkerListComponent implements OnInit {
 
   }
   update($event: MouseEvent) {
+    let elementId: string = (($event.target as Element).id).substr(1);
+    let original = this.workerService.findById(elementId).subscribe((data) => {
+      console.log(elementId);
+      this.workerService.buffer = data;
 
+      console.log(data.fk_casino_id + this.workerService.buffer.fullName);
+      this.workerService.editMode = true;
+      goToPath("/Worker Add", this.router)
+    });
   }
 
 

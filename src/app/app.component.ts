@@ -19,21 +19,21 @@ export class AppComponent implements  OnInit{
    entityForm: FormGroup;
    radioButtonValue!: string;
    errorMessage!: String;
-
+   hiddenButton: boolean = true;
 
   changeEntity(e: any) {
     console.log(e.target.value);
     this.radioButtonValue = e.target.value;
     this.errorMessage = " ";
+    this.changeVisibility();
+
   }
   constructor(
   ) {
-
     this.title = 'Test!';
     this.entityForm = new FormGroup({
-      entityName: new FormControl('Company', Validators.required),
+      entityName: new FormControl('', Validators.required),
     });
-    this.radioButtonValue = 'Company';
   }
   onFormSubmit(){
 
@@ -44,8 +44,17 @@ export class AppComponent implements  OnInit{
 
   }
 
-
+  changeVisibility(){
+    if (this.radioButtonValue != ""){
+      this.hiddenButton = false;
+    }
+    else {
+      this.hiddenButton = true;
+    }
+    console.log(this.radioButtonValue + "  " + this.hiddenButton)
+  }
   onClickMe() {
+    console.log("button clicked")
 
   }
 

@@ -22,6 +22,14 @@ export class CasinoBuildingFormComponent extends DerivedFromCompany {
     protected casinoBuildingService: CasinoBuildingService) {
     super(route, router, companyService)
     this.casinoBuilding = new CasinoBuilding();
+    if (this.casinoBuildingService.editMode)
+    {
+      let buffer = this.casinoBuildingService.buffer;
+      this.casinoBuilding.id = buffer.id;
+      this.casinoBuilding.buildingNumber = buffer.buildingNumber;
+      this.casinoBuilding.adress = buffer.adress;
+      this.casinoBuilding.fk_company_id = buffer.fk_company_id;
+    }
   }
 
   public updateDropDownCall (){
@@ -36,12 +44,29 @@ export class CasinoBuildingFormComponent extends DerivedFromCompany {
 
   onSubmit() {
     console.log("onSumbit: " + this.companyName)
-    this.getIdByAdress(this.companyName).then((resolve:any) => {
-      this.casinoBuilding.fk_company_id = this.companyId;
+    if (this.companyService.editMode){
+      this.getIdByAdress(this.companyName).then( () => {
+        this.casinoBuilding.fk_company_id = this.companyId
+      });
       console.log(this.companyId)
       console.log(this.casinoBuilding)
-      this.casinoBuildingService.save(this.casinoBuilding).subscribe(result => goToPath("/Casino Building", this.router));
-    })
+      this.casinoBuildingService.put(this.casinoBuilding.id, this.casinoBuilding).subscribe(result =>{
+        this.companyService.editMode = false;
+        goToPath("/Casino Building", this.router);
+      });
+
+
+    }
+    else {
+      this.getIdByAdress(this.companyName).then((resolve:any) => {
+        this.casinoBuilding.fk_company_id = this.companyId;
+        console.log(this.companyId)
+        console.log(this.casinoBuilding)
+        this.casinoBuildingService.save(this.casinoBuilding).subscribe(result => goToPath("/Casino Building", this.router));
+      })
+    }
+    console.log("onSumbit: " + this.companyName)
+
 
   }
 

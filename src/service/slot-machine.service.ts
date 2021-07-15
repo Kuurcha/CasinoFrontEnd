@@ -9,8 +9,8 @@ import {CasinoBuilding} from "../model/casino-building";
 })
 export class SlotMachineService {
 
-  public editMode:boolean = false;
   public slotMachineUrl: string;
+  public editMode:boolean = false;
   public buffer!: SlotMachine;
   constructor(private http: HttpClient) {
     this.slotMachineUrl = 'http://localhost:5433/SlotMachine';

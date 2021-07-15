@@ -1,6 +1,6 @@
 export class Worker {
   id!: bigint;
-  fullName!: string;
+  public fullName!: string;
   salary!: bigint;
   dateOfBirth!:Date;
   occupation!:string;

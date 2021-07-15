@@ -10,7 +10,7 @@
                placeholder="Enter Company Name"
                required #CompanyName="ngModel">
       </div>
-      <div [hidden]="!CompanyName.pristine" class="alert alert-danger">Company Name is required</div>
+      <div [hidden]="!CompanyName.invalid" class="alert alert-danger">Company Name is required</div>
       <div class="form-group">
         <label for="CEO"> CEO</label>
         <input type="text" [(ngModel)]="company.ceo"
@@ -19,7 +19,7 @@
                name="CEO"
                placeholder="Enter your casino number"
                required #ceo="ngModel">
-        <div [hidden]="!ceo.pristine" class="alert alert-danger">Chief executive officer is required</div>
+        <div [hidden]="!ceo.invalid" class="alert alert-danger">Chief executive officer is required</div>
       </div>
       <div class="form-group">
         <label for="Share Price"> Share Price</label>
@@ -29,7 +29,7 @@
                name="Share Price"
                placeholder="Enter your casino number"
                required #ceo="ngModel">
-        <div [hidden]="!ceo.pristine" class="alert alert-danger">Share Price is required</div>
+        <div [hidden]="!ceo.invalid" class="alert alert-danger">Share Price is required</div>
       </div>
       <button type="submit" [disabled]="!companyForm.valid"
               class="btn btn-info">Submit</button>

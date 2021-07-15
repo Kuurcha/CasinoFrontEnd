@@ -28,8 +28,14 @@ export class CasinoBuidlingListComponent implements OnInit {
   }
 
   update($event: MouseEvent) {
-
+    let elementId: string = (($event.target as Element).id).substr(1);
+    let original = this.casinoService.findById(elementId).subscribe((data) => {
+      this.casinoService.buffer = data;
+      this.casinoService.editMode = true;
+      goToPath("/Casino Building Add", this.router)
+    });
   }
+
 
   delete($event: MouseEvent) {
     let elementId: string = (($event.target as Element).id).substr(1);

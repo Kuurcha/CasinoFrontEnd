@@ -18,6 +18,7 @@ import {DerivedFromCasinoBuilding} from "../../../../parents/derivedFromCasinoBu
 export class WorkerFormComponent extends DerivedFromCasinoBuilding   {
 
   worker!: Worker
+
   constructor(    protected route: ActivatedRoute,
                   protected router: Router,
                   protected workerService: WorkerService,
@@ -27,7 +28,14 @@ export class WorkerFormComponent extends DerivedFromCasinoBuilding   {
 
     super(route, router, casinoService)
     this.worker = new Worker();
-
+    if (this.workerService.editMode){
+      let buffer = this.workerService.buffer;
+      this.worker.id  = buffer.id;
+      this.worker.occupation = buffer.occupation;
+      this.worker.fullName = buffer.fullName;
+      this.worker.dateOfBirth = buffer.dateOfBirth;
+      this.worker.salary = buffer.salary;
+    }
   }
 
   public updateDropDownCall (){
@@ -37,13 +45,30 @@ export class WorkerFormComponent extends DerivedFromCasinoBuilding   {
       })
   }
   onSubmit() {
+    console.log("onSumbit: " + this.casinoAdress)
+    if (this.workerService.editMode){
+      this.getIdByAdress(this.casinoAdress).then( () => {
+        this.worker.fk_casino_id = this.casinoId
+      });
+      console.log(this.casinoId)
+      console.log(this.worker)
+      this.workerService.put(this.worker.id, this.worker).subscribe(result =>{
+        this.workerService.editMode = false;
+        goToPath("/Worker", this.router);
+      });
+
+
+    }
+    else {
       console.log("onSumbit: " + this.casinoAdress)
-    this.getIdByAdress(this.casinoAdress).then((resolve:any) => {
-      this.worker.fk_casino_id = this.casinoId
+      this.getIdByAdress(this.casinoAdress).then((resolve:any) => {
+        this.worker.fk_casino_id = this.casinoId
         console.log(this.casinoId)
         console.log(this.worker)
         this.workerService.save(this.worker).subscribe(result => goToPath("/Worker", this.router));
-    })
+      })
+
+    }
 
   }
 
